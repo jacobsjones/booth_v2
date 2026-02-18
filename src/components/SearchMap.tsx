@@ -5,8 +5,8 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { Studio } from "@/types";
 
-// Demo token — replace with your own for production
-mapboxgl.accessToken = "pk.eyJ1IjoiZGVtby1hY2NvdW50IiwiYSI6ImNsdmVyeWRlbW8ifQ.demo";
+// Replace hardcoded token with environment variable
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
 
 interface SearchMapProps {
     studios: Studio[];
