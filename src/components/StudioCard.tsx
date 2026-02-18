@@ -6,7 +6,7 @@ import { Studio } from "@/types";
 
 interface StudioCardProps {
     studio: Studio;
-    variant?: "default" | "compact" | "horizontal" | "featured-main" | "grid-item";
+    variant?: "default" | "compact" | "horizontal" | "featured-main" | "grid-item" | "map-overlay";
     onHover?: (id: string | null) => void;
     isHighlighted?: boolean;
 }
@@ -17,7 +17,58 @@ export function StudioCard({
     onHover,
     isHighlighted = false,
 }: StudioCardProps) {
-    // New Variant: Large Featured Card with Text Overlay
+    // New Variant: Map Overlay Carousel Card
+    if (variant === "map-overlay") {
+        return (
+            <div className="w-[300px] h-full flex-shrink-0 bg-surface rounded-[2rem] overflow-hidden border border-white/5 flex flex-col p-2 shadow-2xl">
+                <Link href={`/studios/${studio.id}`} className="block h-full">
+                    <div className="relative aspect-[1.4/1] rounded-[1.5rem] overflow-hidden mb-4">
+                        <Image
+                            src={studio.images[0]}
+                            alt={studio.name}
+                            fill
+                            className="object-cover"
+                            sizes="300px"
+                        />
+                        {/* Rating Badge */}
+                        <div className="absolute top-3 right-3 px-2 py-1 bg-black/40 backdrop-blur-md rounded-lg flex items-center gap-1">
+                            <span className="text-yellow-400 text-xs">★</span>
+                            <span className="text-white text-xs font-bold">{studio.rating}</span>
+                        </div>
+
+                        {/* Equipment Tags Overlay */}
+                        <div className="absolute bottom-3 left-3 flex gap-2">
+                            <span className="px-2.5 py-1 bg-accent rounded-lg text-[10px] font-black text-white uppercase tracking-wider">
+                                SSL 4048 G+
+                            </span>
+                            <span className="px-2.5 py-1 bg-white/20 backdrop-blur-md rounded-lg text-[10px] font-black text-white uppercase tracking-wider">
+                                U87 GOLD
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="px-3 pb-2 flex flex-col flex-1">
+                        <div className="flex items-center justify-between mb-1">
+                            <h3 className="font-bold text-white text-lg truncate flex-1">
+                                {studio.name}
+                            </h3>
+                            <p className="text-accent font-black text-xl">
+                                ${studio.pricePerHour}<span className="text-[10px] font-bold text-text-muted">/hr</span>
+                            </p>
+                        </div>
+                        <p className="text-text-muted text-xs font-medium mb-4">
+                            Arts District • 1.2 miles away
+                        </p>
+                        <div className="mt-auto w-full py-3.5 rounded-2xl bg-accent text-white font-black text-xs tracking-[0.2em] text-center shadow-accent-glow active:scale-[0.98] transition-transform">
+                            BOOK NOW
+                        </div>
+                    </div>
+                </Link>
+            </div>
+        );
+    }
+
+    // Large Featured Card with Text Overlay
     if (variant === "featured-main") {
         return (
             <Link
@@ -50,7 +101,7 @@ export function StudioCard({
         );
     }
 
-    // New Variant: Vertical Grid Item with "BOOK NOW" Button
+    // Vertical Grid Item
     if (variant === "grid-item") {
         return (
             <div className="group bg-surface rounded-[2rem] overflow-hidden border border-white/5 transition-all hover:border-accent/20 hover:shadow-accent-glow p-2">
