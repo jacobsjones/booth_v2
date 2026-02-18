@@ -5,16 +5,18 @@
 @tailwind utilities;
 
 :root {
-  --accent: #6a25f4;
-  --accent-light: #8a4ff3;
-  --surface: #0a0a14;
-  /* Deep dark */
-  --surface-light: #161625;
-  --surface-lighter: #222238;
+  --accent: #7c3aed;
+  /* Electric Indigo */
+  --accent-secondary: #6366f1;
+  /* Indigo */
+  --background: #050508;
+  --surface: #0f0f18;
+  --surface-light: #181826;
+  --surface-lighter: #242438;
   --text-primary: #ffffff;
-  --text-secondary: #b0b0c8;
-  --text-muted: #6b6b80;
-  --radius: 8px;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --radius: 12px;
 }
 
 * {
@@ -26,7 +28,7 @@ html {
 }
 
 body {
-  background-color: var(--surface);
+  background-color: var(--background);
   color: var(--text-primary);
   font-family: "Be Vietnam Pro", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,7 +42,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--surface);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -52,137 +54,27 @@ body {
   background: var(--accent);
 }
 
-/* Mapbox overrides */
-.mapboxgl-popup-content {
-  background: var(--surface-light) !important;
-  border-radius: 12px !important;
-  padding: 0 !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
-  border: 1px solid var(--surface-lighter) !important;
-}
-
-.mapboxgl-popup-tip {
-  border-top-color: var(--surface-light) !important;
-}
-
-.mapboxgl-popup-close-button {
-  color: var(--text-secondary) !important;
-  font-size: 18px !important;
-  right: 8px !important;
-  top: 8px !important;
-}
-
-.mapboxgl-ctrl-group {
-  background: var(--surface-light) !important;
-  border: 1px solid var(--surface-lighter) !important;
-  border-radius: 8px !important;
-}
-
-.mapboxgl-ctrl-group button {
-  background-color: transparent !important;
-}
-
-.mapboxgl-ctrl-group button+button {
-  border-top: 1px solid var(--surface-lighter) !important;
-}
-
-.mapboxgl-ctrl-group button span {
-  filter: invert(1);
-}
-
-/* Date picker overrides */
-.react-datepicker {
-  background-color: var(--surface-light) !important;
-  border: 1px solid var(--surface-lighter) !important;
-  border-radius: 12px !important;
-  font-family: "Be Vietnam Pro", system-ui, sans-serif !important;
-  color: var(--text-primary) !important;
-}
-
-.react-datepicker__header {
-  background-color: var(--surface) !important;
-  border-bottom: 1px solid var(--surface-lighter) !important;
-  border-radius: 12px 12px 0 0 !important;
-}
-
-.react-datepicker__current-month,
-.react-datepicker__day-name {
-  color: var(--text-primary) !important;
-}
-
-.react-datepicker__day {
-  color: var(--text-secondary) !important;
-  border-radius: 8px !important;
-}
-
-.react-datepicker__day:hover {
-  background-color: var(--surface-lighter) !important;
-  color: var(--text-primary) !important;
-}
-
-.react-datepicker__day--selected,
-.react-datepicker__day--in-range {
-  background-color: var(--accent) !important;
-  color: white !important;
-}
-
-.react-datepicker__day--in-selecting-range {
-  background-color: rgba(106, 37, 244, 0.3) !important;
-}
-
-.react-datepicker__day--disabled {
-  color: var(--text-muted) !important;
-  opacity: 0.4;
-}
-
-.react-datepicker__navigation-icon::before {
-  border-color: var(--text-secondary) !important;
-}
-
-/* Swiper overrides */
-.swiper-button-next,
-.swiper-button-prev {
-  color: white !important;
-  background: rgba(0, 0, 0, 0.5);
-  width: 40px !important;
-  height: 40px !important;
-  border-radius: 50%;
-  backdrop-filter: blur(8px);
-}
-
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 16px !important;
-  font-weight: bold;
-}
-
-.swiper-pagination-bullet {
-  background: white !important;
-  opacity: 0.5 !important;
-}
-
-.swiper-pagination-bullet-active {
-  opacity: 1 !important;
-  background: var(--accent) !important;
-}
-
 /* Utility classes */
 @layer utilities {
   .text-gradient {
-    background: linear-gradient(135deg, #6a25f4, #a97cf6);
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .glass {
-    background: rgba(34, 34, 56, 0.6);
+    background: rgba(15, 15, 24, 0.7);
     backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
+  .shadow-glow {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+  }
+
+  .shadow-accent-glow {
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
   }
 
   .hide-scrollbar {
@@ -190,25 +82,43 @@ body {
     scrollbar-width: none;
   }
 
-  .shadow-glow {
-    box-shadow: 0 0 20px rgba(106, 37, 244, 0.15);
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Animations */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(.33);
   }
 
-  .shadow-accent-glow {
-    box-shadow: 0 20px 40px rgba(106, 37, 244, 0.3);
+  80%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(.8);
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.8s ease-out forwards;
+  50% {
+    transform: scale(1);
   }
 
-  .animate-slide-up {
-    animation: slideUp 0.8s ease-out forwards;
+  100% {
+    transform: scale(.8);
   }
+}
 
-  .animate-pulse-glow {
-    animation: pulseGlow 2s infinite;
-  }
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out forwards;
 }
 
 @keyframes fadeIn {
@@ -233,39 +143,14 @@ body {
   }
 }
 
-@keyframes pulseGlow {
-  0% {
-    transform: scale(0.95);
-    opacity: 0.5;
-    box-shadow: 0 0 0 0 rgba(106, 37, 244, 0.4);
-  }
-
-  70% {
-    transform: scale(1.05);
-    opacity: 0.8;
-    box-shadow: 0 0 0 10px rgba(106, 37, 244, 0);
-  }
-
-  100% {
-    transform: scale(0.95);
-    opacity: 0.5;
-    box-shadow: 0 0 0 0 rgba(106, 37, 244, 0);
-  }
+/* Mapbox overrides */
+.mapboxgl-popup-content {
+  background: var(--surface) !important;
+  border-radius: 16px !important;
+  padding: 0 !important;
+  border: 1px solid var(--surface-lighter) !important;
 }
 
-.custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--surface-lighter);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+.mapboxgl-popup-tip {
+  border-top-color: var(--surface) !important;
 }

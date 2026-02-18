@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar";
+import { BottomNav } from "@/components/BottomNav";
 
 export const metadata: Metadata = {
   title: "Booth — Recording Studio Marketplace",
@@ -23,10 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased font-sans bg-background text-text-primary">
         <Providers>
           <Navbar />
-          <main className="pt-16">{children}</main>
+          <main className="lg:pt-20 pb-24 lg:pb-0">{children}</main>
+          <BottomNav />
         </Providers>
       </body>
     </html>
