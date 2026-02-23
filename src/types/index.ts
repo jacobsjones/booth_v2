@@ -53,3 +53,18 @@ export interface BookingState {
     timeSlot: "morning" | "afternoon" | "evening" | null;
     hours: number;
 }
+
+export type BookingStatus = "CONFIRMED" | "PENDING" | "CANCELLED" | "COMPLETED";
+
+export interface Booking {
+    id: string;
+    studioId: string;
+    studioName: string;
+    studioImage: string;
+    date: string; // ISO string
+    timeStart: string;
+    timeEnd: string;
+    durationHours: number;
+    totalCost: number;
+    status: BookingStatus;
+}

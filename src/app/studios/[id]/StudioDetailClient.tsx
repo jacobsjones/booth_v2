@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { Studio } from "@/types";
 import { useState, useRef } from "react";
@@ -21,7 +20,6 @@ interface StudioDetailClientProps {
 }
 
 export default function StudioDetailClient({ id }: StudioDetailClientProps) {
-    const router = useRouter();
 
     const { data: studio, isLoading } = useQuery({
         queryKey: ["studio", id],
@@ -44,7 +42,6 @@ export default function StudioDetailClient({ id }: StudioDetailClientProps) {
     const [checkOut, setCheckOut] = useState<Date | null>(null);
     const [guests, setGuests] = useState(1);
     const [timeSlot, setTimeSlot] = useState<string | null>(null);
-    const [isBooking, setIsBooking] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [lightboxIndex, setLightboxIndex] = useState(0);
     const [showAllReviews, setShowAllReviews] = useState(false);
@@ -82,12 +79,6 @@ export default function StudioDetailClient({ id }: StudioDetailClientProps) {
     const canBook = checkIn && timeSlot && guests > 0;
 
     const similarStudios = allStudios?.studios.filter((s) => s.id !== studio.id).slice(0, 2) || [];
-
-    const handleBooking = async () => {
-        setIsBooking(true);
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-        router.push(`/booking-success?studioId=${studio.id}`);
-    };
 
     const timeSlots = [
         { label: "Morning", value: "morning", time: "9AM - 1PM" },
@@ -290,9 +281,9 @@ export default function StudioDetailClient({ id }: StudioDetailClientProps) {
                                     </div>
                                 )}
 
-                                <button onClick={handleBooking} disabled={!canBook || isBooking} className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all ${canBook && !isBooking ? "bg-gradient-accent text-white hover:opacity-90 hover:shadow-glow active:scale-[0.98]" : "bg-surface-50 text-muted cursor-not-allowed"}`}>
-                                    {isBooking ? (<span className="flex items-center justify-center gap-2"><div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />Processing...</span>) : canBook ? "Request to Book" : "Select date & time to book"}
-                                </button>
+                                <Link href={`/studios/${studio.id}/book`} className={`w-full py-3.5 rounded-xl font-semibold text-sm transition-all flex items-center justify-center ${canBook ? "bg-gradient-accent text-white hover:opacity-90 hover:shadow-glow active:scale-[0.98]" : "bg-gradient-accent text-white hover:opacity-90 hover:shadow-glow active:scale-[0.98]"}`}>
+                                    Book Session
+                                </Link>
                                 <p className="text-center text-xs text-muted mt-3">You won&apos;t be charged yet</p>
                             </div>
                         </div>
