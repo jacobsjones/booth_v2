@@ -5,7 +5,7 @@ export const mockBookings: Booking[] = [
         id: "bkg_1",
         studioId: "neon-beats-sanctuary",
         studioName: "Neon Dreams Audio", // Matching the design screen names
-        studioImage: "https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80",
+        studioImage: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
         date: "2024-02-25T14:00:00.000Z", // "Tomorrow, 2:00 PM" relative or absolute Feb 25 2024
         timeStart: "2:00 PM",
         timeEnd: "4:00 PM",

@@ -20,7 +20,7 @@ export const studios: Studio[] = [
         sqft: 1200,
         hours: "24/7",
         images: [
-            "https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80",
+            "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
             "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&q=80",
             "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&q=80",
             "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
@@ -174,7 +174,7 @@ export const studios: Studio[] = [
             "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
             "https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&q=80",
             "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
-            "https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80",
+            "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
         ],
         equipment: [
             { category: "Mixing Desk", name: "SSL AWS 948", icon: "🎛️" },
@@ -270,7 +270,7 @@ export const studios: Studio[] = [
             "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?w=800&q=80",
             "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&q=80",
             "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
-            "https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80",
+            "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
         ],
         equipment: [
             { category: "Microphones", name: "Rode PodMic USB", icon: "🎙️" },
@@ -314,7 +314,7 @@ export const studios: Studio[] = [
         images: [
             "https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&q=80",
             "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
-            "https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80",
+            "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
             "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&q=80",
         ],
         equipment: [
@@ -454,7 +454,7 @@ export const studios: Studio[] = [
         hours: "24/7",
         images: [
             "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&q=80",
-            "https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80",
+            "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80",
             "https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=800&q=80",
             "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?w=800&q=80",
         ],

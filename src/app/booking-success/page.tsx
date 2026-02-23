@@ -35,7 +35,7 @@ export default function BookingSuccessPage() {
                         {/* We aren't using next/image here since it's just a static placeholder */}
                         <div
                             className="absolute inset-0 bg-cover bg-center opacity-80"
-                            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1559170655-905e94be76e3?w=800&q=80")' }}
+                            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80")' }}
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#120F1D] via-transparent to-transparent" />
                     </div>
