@@ -68,3 +68,19 @@ export interface Booking {
     totalCost: number;
     status: BookingStatus;
 }
+
+export interface UserProfile {
+    id: string;
+    name: string;
+    email: string;
+    avatar: string;
+    stats: {
+        bookings: number;
+        saved: number;
+        reviews: number;
+    };
+    settings: {
+        pushNotifications: boolean;
+        emailUpdates: boolean;
+    };
+}
